@@ -1,15 +1,18 @@
 const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
+const json = require('rollup-plugin-json');
 
-console.log('babel', babel)
-// see below for details on the options
+console.log('FORMAT', process.env.FORMAT)
+
 const inputOptions = {
-  input: 'src/index.js'
+  input: 'src/index.js',
+  plugins: [json(), babel()]
 };
+
 const outputOptions = {
   output: {
     file: 'dist/bundle.js',
-    format: 'ems'
+    format: process.env.FORMAT || 'esm'
   }
 };
 

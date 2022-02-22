@@ -1,4 +1,8 @@
-// eslint-disable-next-line import/prefer-default-export
-export const maoguotao = 'test';
+const maoguotao = 'test';
 
-console.log(maoguotao);
+const getDate = () => Date.now();
+
+export {
+  maoguotao,
+  getDate,
+};
