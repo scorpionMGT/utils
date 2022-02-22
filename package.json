@@ -4,7 +4,7 @@
   "description": "utils tools",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env FORMAT=cjs node ./script/build.js"
+    "build": "cross-env FORMAT=umd node ./script/build.js"
   },
   "author": "maoguotao",
   "license": "ISC",

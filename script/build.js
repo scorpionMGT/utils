@@ -12,7 +12,8 @@ const inputOptions = {
 const outputOptions = {
   output: {
     file: 'dist/bundle.js',
-    format: process.env.FORMAT || 'esm'
+    format: process.env.FORMAT || 'esm',
+    name: 'bundle'
   }
 };
 
