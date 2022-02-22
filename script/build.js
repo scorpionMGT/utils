@@ -1,18 +1,18 @@
 const rollup = require('rollup');
 const babel = require('rollup-plugin-babel');
 const json = require('rollup-plugin-json');
-
-console.log('FORMAT', process.env.FORMAT)
+const resolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
 
 const inputOptions = {
   input: 'src/index.js',
-  plugins: [json(), babel()]
+  plugins: [json(), babel(), resolve(), commonjs()]
 };
 
 const outputOptions = {
   output: {
     file: 'dist/bundle.js',
-    format: process.env.FORMAT || 'esm',
+    format: process.env.FORMAT || 'umd',
     name: 'bundle'
   }
 };
@@ -20,10 +20,6 @@ const outputOptions = {
 async function build() {
   // create a bundle
   const bundle = await rollup.rollup(inputOptions);
-
-  console.log(bundle.imports); // an array of external dependencies
-  console.log(bundle.exports); // an array of names exported by the entry point
-  console.log(bundle.modules); // an array of module objects
 
   // generate code and a sourcemap
   const { code, map } = await bundle.generate(outputOptions);
