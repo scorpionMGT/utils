@@ -3,10 +3,11 @@ const babel = require('rollup-plugin-babel');
 const json = require('rollup-plugin-json');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
+const typescript = require('@rollup/plugin-typescript');
 
 const inputOptions = {
-  input: 'src/index.js',
-  plugins: [json(), babel(), resolve(), commonjs()]
+  input: 'src/index.ts',
+  plugins: [json(), babel(), resolve(), commonjs(), typescript()]
 };
 
 const outputOptions = {
