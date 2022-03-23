@@ -37,4 +37,4 @@
 // console.log(Boolean(sym))
 
 
-console.log(Number(''))
+console.log('test'.toString())
