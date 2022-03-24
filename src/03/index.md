@@ -141,4 +141,78 @@ null和undefined值没有toString()方法。
 3. 如果值是undefined，返回"undefined"。
 
 
-### Symbol 数据类型
+### Symbol（符号） 数据类型是 ecmascript 新增的数据类型，特性是唯一的，不可变的
+
+使用全局符号注册表 Symbol.for()对每个字符串键都执行幂等操作。第一次使用某个字符串调用时，它会检查全局运行时注册表，发现不存在对应的符号，于是就会生成一个新符号实例并添加到注册表中。后续使用相同字符串的调用同样会检查注册表，发现存在与该字符串对应的符号，然后就会返回该符号实例。
+
+```js
+let sym = Symbol.for('test')
+let sym1 = Symbol.for('test')
+let sym2 = Symbol('test')
+
+console.log(sym === sym1) // true
+console.log(sym === sym2) // false
+```
+
+### Object类型
+
+```js
+
+let obj = new Object();
+// 或者 let obj = new Object;
+```
+
+Object 实例的属性和方法
+
+- constructor: 用于创建当前对象的函数 let obj = new Object() 这个constructor 就是Object()函数
+- hasOwnProperty(): 用于判断当前对象实例上是否存在给定属性 obj.hasOwnProperty('name'),不是通过原型链中继承的
+- isPrototypeOf(objName) 用于检查传入对象是否是当前实例的原型
+- propertyIsEnumerable(propertyName) 用于判断给定的属性是否可以使用（本章稍后讨论的）for-in语句枚举。与hasOwnProperty()一样，属性名必须是字符串。
+- toLocaleString()：返回对象的字符串表示，该字符串反映对象所在的本地化执行环境
+- toString()：返回对象的字符串表示。
+- valueOf()：返回对象对应的字符串、数值或布尔值表示。通常与toString()的返回值相同
+- ECMAScript中Object是所有对象的基类，所以任何对象都有这些属性和方法
+
+
+
+
+## 操作符
+
+#### 逻辑非 !
+
+- 如果操作数是对象，则返回false。
+- 如果操作数是空字符串，则返回true。
+- 如果操作数是非空字符串，则返回false。
+- 如果操作数是数值0，则返回true。
+- 如果操作数是非0数值（包括Infinity），则返回false。
+- 如果操作数是null，则返回true。
+- 如果操作数是NaN，则返回true。
+- 如果操作数是undefined，则返回true
+
+#### 逻辑与 && 
+
+-  如果第一个操作数是对象，则返回第二个操作数。
+-  如果第二个操作数是对象，则只有第一个操作数求值为true才会返回该对象。
+-  如果两个操作数都是对象，则返回第二个操作数。
+-  如果有一个操作数是null，则返回null。
+-  如果有一个操作数是NaN，则返回NaN。
+-  如果有一个操作数是undefined，则返回undefined。
+
+逻辑与操作符是一种短路操作符，意思就是如果第一个操作数决定了结果，那么永远不会对第二个操作数求值
+
+#### 逻辑或 || 
+
+- 如果第一个操作数是对象，则返回第一个操作数。
+- 如果第一个操作数求值为false，则返回第二个操作数。
+- 如果两个操作数都是对象，则返回第一个操作数。
+- 如果两个操作数都是null，则返回null。
+- 如果两个操作数都是NaN，则返回NaN。
+- 如果两个操作数都是undefined，则返回undefined。
+
+同样与逻辑与类似，逻辑或操作符也具有短路的特性。只不过对逻辑或而言，第一个操作数求值为true，第二个操作数就不会再被求值了。
+
+
+
+### 语句 
+for in 语句 是一种严格的迭代语句，用于迭代枚举对象中的非符号（非symbol）键属性
+for-of语句是一种严格的迭代语句，用于遍历可迭代对象的元素
