@@ -16,7 +16,7 @@ module.exports = {
   ],
   rules: {
     'no-console': 0,
-    'linebreak-style': ["error", "windows"],
+    'linebreak-style': ["off", "windows"],
     'eol-last': ["off", "always"],
     'no-multiple-empty-lines': 0,
     'semi': 0
