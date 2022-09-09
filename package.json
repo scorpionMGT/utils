@@ -2,7 +2,13 @@
   "name": "utils",
   "version": "1.0.0",
   "description": "utils tools",
-  "main": "index.js",
+  "keywords": ["utils", "javascript", "typescript"],
+  "homepage": "https://github.com/scorpionMGT/utils",
+  "main": "dist/bundle.js",
+  "repository": {
+    "type" : "git",
+    "url" : "git@github.com:scorpionMGT/utils.git"
+  },
   "scripts": {
     "build": "cross-env FORMAT=umd node ./script/build.js"
   },
