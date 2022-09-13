@@ -4,17 +4,19 @@ const json = require('rollup-plugin-json');
 const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const typescript = require('@rollup/plugin-typescript');
+const { terser } = require('rollup-plugin-terser');
 
 const inputOptions = {
   input: 'src/index.ts',
-  plugins: [json(), babel(), resolve(), commonjs(), typescript()]
+  plugins: [json(), babel(), resolve(), commonjs(), typescript(), terser()]
 };
 
 const outputOptions = {
   output: {
     file: 'dist/bundle.js',
     format: process.env.FORMAT || 'umd',
-    name: 'bundle'
+    name: 'bundle',
+    sourcemap: true,
   }
 };
 

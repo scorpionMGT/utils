@@ -13,8 +13,10 @@
     "type": "git",
     "url": "git@github.com:scorpionMGT/utils.git"
   },
+  "types": "bundle.d.ts",
   "scripts": {
-    "build": "cross-env FORMAT=umd node ./script/build.js"
+    "build:types": "tsc",
+    "build": "npm run build:types && cross-env FORMAT=umd node ./script/build.js"
   },
   "author": "maoguotao",
   "license": "ISC",
@@ -37,6 +39,7 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-json": "^4.0.0",
-    "rollup-plugin-node-resolve": "^5.2.0"
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }
