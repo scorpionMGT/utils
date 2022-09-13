@@ -1,5 +1,5 @@
 {
-  "name": "utils",
+  "name": "mgtutils",
   "version": "1.0.0",
   "description": "utils tools",
   "keywords": [
@@ -8,12 +8,12 @@
     "typescript"
   ],
   "homepage": "https://github.com/scorpionMGT/utils",
-  "main": "dist/bundle.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:scorpionMGT/utils.git"
   },
-  "types": "bundle.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "build:types": "tsc",
     "build": "npm run build:types && cross-env FORMAT=umd node ./script/build.js"

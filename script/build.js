@@ -13,9 +13,9 @@ const inputOptions = {
 
 const outputOptions = {
   output: {
-    file: 'dist/bundle.js',
+    file: 'dist/index.js',
     format: process.env.FORMAT || 'umd',
-    name: 'bundle',
+    name: 'index',
     sourcemap: true,
   }
 };
